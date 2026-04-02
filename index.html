@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Delantal Digital - Busca, guarda y organiza tus recetas favoritas">
+    <meta name="description"
+        content="Delantal Digital - Busca, guarda y organiza tus recetas favoritas. Una web app responsive con buscador inteligente.">
     <title>Delantal Digital | Cocina con tecnología</title>
 
     <!-- Google Fonts -->
@@ -12,10 +13,10 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome (iconos) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- CSS propio -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -23,6 +24,7 @@
 </head>
 
 <body>
+    <!-- Header con navegación -->
     <header class="header">
         <div class="container header__container">
             <div class="logo">
@@ -52,11 +54,13 @@
     </header>
 
     <main class="main">
+        <!-- Hero Section -->
         <section class="hero">
             <div class="container hero__container">
                 <h1 class="hero__title">¿Qué <span class="hero__highlight">cocinas</span> hoy?</h1>
                 <p class="hero__subtitle">Descubre miles de recetas, guárdalas como favoritas y organiza tus comidas</p>
 
+                <!-- Buscador principal -->
                 <form class="search-form" id="searchForm">
                     <div class="search-form__group">
                         <i class="fas fa-search search-form__icon"></i>
@@ -66,6 +70,7 @@
                     </div>
                 </form>
 
+                <!-- Filtros rápidos -->
                 <div class="categories-filter">
                     <span class="categories-filter__label">Filtrar por:</span>
                     <div class="categories-filter__buttons" id="categoriesFilter">
@@ -79,6 +84,7 @@
             </div>
         </section>
 
+        <!-- Sección de resultados -->
         <section class="recipes-section">
             <div class="container">
                 <div class="section-header">
@@ -89,7 +95,9 @@
                     <p id="resultsCount" class="results-count"></p>
                 </div>
 
+                <!-- Grid de recetas (se llena con JS) -->
                 <div class="recipes-grid" id="recipesGrid">
+                    <!-- Los cards se generan dinámicamente -->
                     <div class="skeleton-loader">
                         <div class="skeleton-card"></div>
                         <div class="skeleton-card"></div>
@@ -101,16 +109,20 @@
         </section>
     </main>
 
+    <!-- Modal de detalle de receta (oculto inicialmente) -->
     <div class="modal" id="recipeModal" aria-hidden="true">
         <div class="modal__overlay"></div>
         <div class="modal__container">
             <button class="modal__close" aria-label="Cerrar">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="modal__content" id="modalContent"></div>
+            <div class="modal__content" id="modalContent">
+                <!-- Contenido dinámico de la receta -->
+            </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer__container">
             <div class="footer__info">
@@ -127,6 +139,7 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/api.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/ui.js"></script>
