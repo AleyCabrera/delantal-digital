@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delantal Digital - Busca, guarda y organiza tus recetas favoritas">
+    <title>Delantal Digital | Cocina con tecnología</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-utensils logo__icon"></i>
+                    <span class="logo__text">Delantal<span class="logo__highlight">Digital</span></span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="Menú" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="navbar">
+                <ul class="navbar__menu">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="favorites.html">Mis Favoritos</a></li>
+                    <li><a href="about.html">Acerca de</a></li>
+                </ul>
+
+                <button class="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container hero__container">
+                <h1 class="hero__title">¿Qué <span class="hero__highlight">cocinas</span> hoy?</h1>
+                <p class="hero__subtitle">Descubre miles de recetas, guárdalas como favoritas y organiza tus comidas</p>
+
+                <form class="search-form" id="searchForm">
+                    <div class="search-form__group">
+                        <i class="fas fa-search search-form__icon"></i>
+                        <input type="text" id="searchInput" placeholder="Ej: pasta, pollo, postres, vegano..."
+                            aria-label="Buscar recetas">
+                        <button type="submit" class="search-form__btn">Buscar</button>
+                    </div>
+                </form>
+
+                <div class="categories-filter">
+                    <span class="categories-filter__label">Filtrar por:</span>
+                    <div class="categories-filter__buttons" id="categoriesFilter">
+                        <button data-category="Beef">🥩 Carne</button>
+                        <button data-category="Chicken">🍗 Pollo</button>
+                        <button data-category="Pasta">🍝 Pastas</button>
+                        <button data-category="Vegetarian">🥦 Vegetariano</button>
+                        <button data-category="Dessert">🍰 Postres</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recipes-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-utensil-spoon"></i>
+                        <span id="sectionTitle">Recetas destacadas</span>
+                    </h2>
+                    <p id="resultsCount" class="results-count"></p>
+                </div>
+
+                <div class="recipes-grid" id="recipesGrid">
+                    <div class="skeleton-loader">
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="recipeModal" aria-hidden="true">
+        <div class="modal__overlay"></div>
+        <div class="modal__container">
+            <button class="modal__close" aria-label="Cerrar">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal__content" id="modalContent"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__info">
+                <div class="logo logo--small">
+                    <i class="fas fa-utensils"></i>
+                    <span>Delantal<span>Digital</span></span>
+                </div>
+                <p>Cocina con tecnología - Encuentra y guarda tus recetas favoritas</p>
+            </div>
+            <div class="footer__tech">
+                <p>Hecho con <i class="fas fa-heart"></i> usando HTML5, CSS3 y JavaScript Vanilla</p>
+                <p>API: TheMealDB | Proyecto de portafolio</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Favoritos - Delantal Digital</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-utensils logo__icon"></i>
+                    <span class="logo__text">Delantal<span class="logo__highlight">Digital</span></span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="navbar">
+                <ul class="navbar__menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="favorites.html" class="active">Mis Favoritos</a></li>
+                    <li><a href="about.html">Acerca de</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1>❤️ Mis Recetas Favoritas</h1>
+                <p>Tus recetas guardadas aparecerán aquí</p>
+            </div>
+        </section>
+
+        <section class="recipes-section">
+            <div class="container">
+                <div class="recipes-grid" id="favoritesGrid">
+                    <div class="empty-state" id="emptyState">
+                        <i class="fas fa-heart-broken"></i>
+                        <h3>Aún no tienes recetas favoritas</h3>
+                        <p>Explora recetas en la página principal y guarda tus favoritas</p>
+                        <a href="index.html" class="btn btn-primary">Explorar recetas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__info">
+                <div class="logo logo--small">
+                    <i class="fas fa-utensils"></i>
+                    <span>Delantal<span>Digital</span></span>
+                </div>
+                <p>Cocina con tecnología</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/favorites.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
