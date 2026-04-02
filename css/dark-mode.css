@@ -1,0 +1,27 @@
+/* Modo oscuro */
+body.dark-mode {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #eeeeee;
+    --text-secondary: #b8b8b8;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --border-color: #2a2a4a;
+}
+
+body.dark-mode .recipe-card {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .search-form__group input {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+body.dark-mode .modal__container {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .badge {
+    background: rgba(255, 107, 53, 0.2);
+    color: var(--accent);
+}
