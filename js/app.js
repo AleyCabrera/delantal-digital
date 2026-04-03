@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Inicializar modal (cerrar al hacer clic fuera)
     initModal();
+
+    // Inicializar página de favoritos si estamos en ella
+    updateFavoritesBadge();
 });
 
 /**
@@ -64,3 +67,4 @@ function initModal() {
         }
     });
 }
+

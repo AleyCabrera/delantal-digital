@@ -122,3 +122,35 @@ function showToast(message) {
         setTimeout(() => toast.remove(), 300);
     }, 2000);
 }
+
+function updateFavoritesBadge() {
+    const favorites = getFavorites();
+    const badge = document.querySelector('.favorites-badge');
+    
+    if (badge) {
+        if (favorites.length > 0) {
+            badge.textContent = favorites.length;
+            badge.style.display = 'inline-block';
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+}
+
+/**
+ * Exporta favoritos a JSON (función extra)
+ */
+function exportFavorites() {
+    const favorites = getFavorites();
+    const dataStr = JSON.stringify(favorites, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `delantal-favorites-${new Date().toISOString().split('T')[0]}.json`;
+    link.click();
+    
+    URL.revokeObjectURL(url);
+    showToast('📥 Favoritos exportados');
+}

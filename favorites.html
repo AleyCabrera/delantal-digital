@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Favoritos - Delantal Digital</title>
+    <meta name="description" content="Tus recetas favoritas guardadas en Delantal Digital">
+    <title>Mis Favoritos | Delantal Digital</title>
 
+    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/favorites.css">
 </head>
 
 <body>
@@ -26,7 +33,7 @@
                 </a>
             </div>
 
-            <button class="mobile-menu-btn" aria-label="Menú">
+            <button class="mobile-menu-btn" aria-label="Menú" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
 
@@ -36,6 +43,7 @@
                     <li><a href="favorites.html" class="active">Mis Favoritos</a></li>
                     <li><a href="about.html">Acerca de</a></li>
                 </ul>
+
                 <button class="theme-toggle" aria-label="Cambiar tema">
                     <i class="fas fa-sun"></i>
                     <i class="fas fa-moon"></i>
@@ -45,26 +53,98 @@
     </header>
 
     <main class="main">
-        <section class="page-header">
+        <!-- Hero section de favoritos -->
+        <section class="favorites-hero">
             <div class="container">
-                <h1>❤️ Mis Recetas Favoritas</h1>
-                <p>Tus recetas guardadas aparecerán aquí</p>
+                <div class="favorites-hero__content">
+                    <i class="fas fa-heart favorites-hero__icon"></i>
+                    <h1 class="favorites-hero__title">Mis Recetas Favoritas</h1>
+                    <p class="favorites-hero__subtitle">Guarda tus recetas favoritas y accede a ellas fácilmente</p>
+                </div>
             </div>
         </section>
 
-        <section class="recipes-section">
+        <!-- Estadísticas de favoritos -->
+        <section class="favorites-stats">
             <div class="container">
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <i class="fas fa-utensils"></i>
+                        <div class="stat-info">
+                            <span class="stat-number" id="favoritesCount">0</span>
+                            <span class="stat-label">Recetas guardadas</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="stat-info">
+                            <span class="stat-number" id="lastAdded">-</span>
+                            <span class="stat-label">Última añadida</span>
+                        </div>
+                    </div>
+                    <button class="btn-clear-all" id="clearAllFavorites">
+                        <i class="fas fa-trash-alt"></i>
+                        Limpiar todas
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de recetas favoritas -->
+        <section class="favorites-section">
+            <div class="container">
+                <div class="favorites-actions">
+                    <div class="search-favorites">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchFavorites" placeholder="Buscar en mis favoritos..."
+                            aria-label="Buscar en favoritos">
+                    </div>
+                    <div class="sort-favorites">
+                        <label for="sortBy">Ordenar por:</label>
+                        <select id="sortBy">
+                            <option value="date-desc">Más reciente</option>
+                            <option value="date-asc">Más antigua</option>
+                            <option value="name-asc">Nombre (A-Z)</option>
+                            <option value="name-desc">Nombre (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="recipes-grid" id="favoritesGrid">
-                    <div class="empty-state" id="emptyState">
+                    <!-- Los favoritos se cargan dinámicamente aquí -->
+                </div>
+
+                <!-- Template para cuando no hay favoritos -->
+                <div class="empty-favorites" id="emptyFavorites" style="display: none;">
+                    <div class="empty-favorites__content">
                         <i class="fas fa-heart-broken"></i>
-                        <h3>Aún no tienes recetas favoritas</h3>
-                        <p>Explora recetas en la página principal y guarda tus favoritas</p>
-                        <a href="index.html" class="btn btn-primary">Explorar recetas</a>
+                        <h3>¡Aún no tienes recetas favoritas!</h3>
+                        <p>Explora nuestras recetas y guarda tus favoritas haciendo clic en el corazón ❤️</p>
+                        <a href="index.html" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Explorar recetas
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Modal de confirmación para limpiar favoritos -->
+    <div class="modal-confirm" id="confirmModal">
+        <div class="modal-confirm__overlay"></div>
+        <div class="modal-confirm__container">
+            <div class="modal-confirm__content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>¿Eliminar todas las recetas?</h3>
+                <p>Esta acción no se puede deshacer. Perderás todas tus recetas favoritas guardadas.</p>
+                <div class="modal-confirm__buttons">
+                    <button class="btn btn-secondary" id="cancelClear">Cancelar</button>
+                    <button class="btn btn-danger" id="confirmClear">Sí, eliminar todas</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container footer__container">
@@ -73,14 +153,20 @@
                     <i class="fas fa-utensils"></i>
                     <span>Delantal<span>Digital</span></span>
                 </div>
-                <p>Cocina con tecnología</p>
+                <p>Cocina con tecnología - Encuentra y guarda tus recetas favoritas</p>
+            </div>
+            <div class="footer__tech">
+                <p>Hecho con <i class="fas fa-heart"></i> usando HTML5, CSS3 y JavaScript Vanilla</p>
+                <p>API: TheMealDB | Proyecto de portafolio</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/api.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/favorites-page.js"></script>
     <script src="js/app.js"></script>
 </body>
 
